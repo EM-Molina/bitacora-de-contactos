@@ -1,0 +1,31 @@
+<form id="form" (submit)='$event.preventDefault(); aniadirPersona(nombre.value, apellidos.value, edad.value, DPI.value)'>
+    <table>
+        <p>
+            <td><label for="nombre">Nombre</label></td>
+            <td><input type="text" #nombre /></td>
+        </p>
+        <p>
+            <td><label for="apellidos">Apellidos</label></td>
+            <td><input type="text" #apellidos/></td>
+        </p>
+        <p>
+            <td><label for="edad">Edad</label></td>
+            <td><input type="text" #edad/></td>
+        </p>
+        <p>
+            <td><label for="DNI">DPI</label></td>
+            <td> <input type="text" #DPI /></td>
+        </p>
+        <p>
+            <td colspan="2"><button id="enviar" type="submit">Enviar</button></td>
+        </p>
+
+    </table>
+</form>
+
+<div id="agenda" *ngIf="!isEmpty()">
+    <div class="persona" *ngFor="let persona of personas">
+        <h1>{{persona.nombreCompleto()}}</h1>
+        <p>{{persona.mostrarInfo()}}</p>
+    </div>
+</div>
